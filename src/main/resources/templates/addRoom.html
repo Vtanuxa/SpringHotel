@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+    <h1 class="text-center my-5">Добавить комнату</h1>
+    <form th:action="@{/addRoom}" th:object="${room}" method="post">
+        <div class="mb-3">
+            <label for="roomNumber">Номер комнаты</label>
+            <input type="text" class="form-control" th:field="*{roomNumber}" placeholder="Номер комнаты" id="roomNumber">
+        </div>
+        <div class="mb-3">
+            <label>Тип комнаты</label>
+            <input type="text" class="form-control" th:field="*{type}" placeholder="Тип комнаты" id="type">
+        </div>
+        <div class="mb-3">
+            <label>Стоимость</label>
+            <input type="text" class="form-control" th:field="*{pricePerNight}" placeholder="Стоимость" id="pricePerNight">
+        </div>
+        <div class="mb-3">
+            <input type="submit" class="form-control btn btn-primary" value="Отправить">
+        </div>
+
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
