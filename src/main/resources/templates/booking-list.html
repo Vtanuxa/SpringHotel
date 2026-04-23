@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Список бронирований</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+  <h1 class="text-center my-5">Список бронирований</h1>
+  <div>
+    <a href="/add-booking" class="btn btn-primary me-3">Добавить бронирование</a>
+    <a href="/rooms">Комнаты</a>
+    <a href="/clients">Клиенты</a>
+  </div>
+  <table class="table table-light table-hover">
+    <thead>
+    <tr class="table-dark">
+      <th scope="col">ID</th>
+      <th scope="col">Клиент</th>
+      <th scope="col">Комната</th>
+      <th scope="col">Дата заезда</th>
+      <th scope="col">Дата выезда</th>
+      <th scope="col">Гостей</th>
+      <th scope="col">Общая стоимость</th>
+      <th scope="col">Статус</th>
+      <th scope="col">Действия</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="booking: ${bookingList}">
+      <th th:text="${booking.id}"></th>
+      <th th:text="${booking.client.fullName}"></th>
+      <th th:text="${booking.room.roomNumber}"></th>
+      <th th:text="${booking.checkInDate}"></th>
+      <th th:text="${booking.checkOutDate}"></th>
+      <th th:text="${booking.guestsCount}"></th>
+      <th th:text="${booking.totalPrice}"></th>
+      <th th:text="${booking.status}"></th>
+      <th>
+        <a th:href="@{/delete-booking/{id}(id=${booking.getId()})}" class="btn btn-danger btn-sm">Удалить</a>
+        <a th:href="@{/edit-booking/{id}(id=${booking.getId()})}" class="btn btn-primary btn-sm">Редактировать</a>
+      </th>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

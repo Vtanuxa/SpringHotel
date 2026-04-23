@@ -10,7 +10,7 @@
 
 <div class="container">
     <h1 class="text-center my-5">Добавить комнату</h1>
-    <form th:action="@{/addRoom}" th:object="${room}" method="post">
+    <form th:action="@{/add-room}" th:object="${room}" method="post">
         <div class="mb-3">
             <label for="roomNumber">Номер комнаты</label>
             <input type="text" class="form-control" th:field="*{roomNumber}" placeholder="Номер комнаты" id="roomNumber">

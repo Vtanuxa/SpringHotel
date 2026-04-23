@@ -23,12 +23,12 @@ public class ClientController {
 //    public String mainPage() {
 //        return "redirect:/";
 //    }
-    @GetMapping("/addClient")
+    @GetMapping("/add-client")
     public String showAddClient(Model model) {
         model.addAttribute("client", new Client());
-        return "addClient";
+        return "add-client";
     }
-    @PostMapping("/addClient")
+    @PostMapping("/add-client")
     public String addClient(@ModelAttribute Client client) {
         clientRepository.save(client);
         return "redirect:/clients";

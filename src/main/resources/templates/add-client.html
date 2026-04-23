@@ -10,7 +10,7 @@
 
 <div class="container">
     <h1 class="text-center my-5">Добавить клиента</h1>
-    <form th:action="@{/addClient}" th:object="${client}" method="post">
+    <form th:action="@{/add-client}" th:object="${client}" method="post">
         <div class="mb-3">
             <label for="fullName">ФИО</label>
             <input type="text" class="form-control" th:field="*{fullName}" placeholder="Фамилия Имя Отчество" id="fullName">

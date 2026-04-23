@@ -23,12 +23,12 @@ public class RoomController {
     public String mainPage() {
         return "index";
     }
-    @GetMapping("/addRoom")
+    @GetMapping("/add-room")
     public String showAddRoom(Model model) {
         model.addAttribute("room", new Room());
-        return "addRoom";
+        return "add-room";
     }
-    @PostMapping("/addRoom")
+    @PostMapping("/add-room")
     public String addRoom(@ModelAttribute Room room) {
         room.setStatus("Свободен");
         roomRepository.save(room);
