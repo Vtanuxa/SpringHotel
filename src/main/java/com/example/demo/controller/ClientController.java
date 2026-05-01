@@ -19,10 +19,6 @@ public class ClientController {
         this.clientRepository = clientRepository;
     }
 
-//    @GetMapping("/")
-//    public String mainPage() {
-//        return "redirect:/";
-//    }
     @GetMapping("/add-client")
     public String showAddClient(Model model) {
         model.addAttribute("client", new Client());

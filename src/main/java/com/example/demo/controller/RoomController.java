@@ -19,10 +19,6 @@ public class RoomController {
         this.roomRepository = roomRepository;
     }
 
-    @GetMapping("/")
-    public String mainPage() {
-        return "index";
-    }
     @GetMapping("/add-room")
     public String showAddRoom(Model model) {
         model.addAttribute("room", new Room());
